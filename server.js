@@ -5,7 +5,6 @@ const table = require("console.table");
 const db = mysql.createConnection(
   {
     host: "localhost",
-    // YOUR MySQL username,
     user: "root",
     password: "",
     database: "employee_db",
@@ -56,7 +55,7 @@ const questions = () => {
 };
 
 const viewDepartments = () => {
-  const dept = `SELECT DISTINCT 
+  const dept = `SELECT
                     department.id,
                     department.name AS department
                     FROM department
@@ -71,14 +70,20 @@ const viewDepartments = () => {
 };
 
 const viewRoles = () => {
-    const roleView = `SELECT roles.id, roles.title, department.name AS department, roles.salary FROM roles JOIN department ON roles.department_id = department.id`;
-    db.query(roleView, (err, result) => {
-        if (err) {
-            console.log(err);
-        }
-        console.table(result);
-        questions();
-    });
+  const roleView = `SELECT
+                    roles.id,
+                    roles.title,
+                    department.name AS department,
+                    roles.salary
+                    FROM roles
+                    JOIN department ON roles.department_id = department.id`;
+  db.query(roleView, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+    questions();
+  });
 };
 
 const viewEmployees = () => {
@@ -105,7 +110,7 @@ const viewEmployees = () => {
 };
 
 const addDepartment = () => {
-  const addDept = `SELECT DISTINCT 
+  const addDept = `SELECT
                     department.id,
                     department.name AS department
                     FROM department
@@ -120,7 +125,7 @@ const addDepartment = () => {
 };
 
 const addRole = () => {
-  const addRole = `SELECT DISTINCT 
+  const addRole = `SELECT
                     department.id,
                     department.name AS department
                     FROM department
@@ -135,7 +140,7 @@ const addRole = () => {
 };
 
 const addEmployee = () => {
-  const addEmp = `SELECT DISTINCT 
+  const addEmp = `SELECT 
                     department.id,
                     department.name AS department
                     FROM department
@@ -150,7 +155,7 @@ const addEmployee = () => {
 };
 
 const updateEmployee = () => {
-  const updateEmp = `SELECT DISTINCT 
+  const updateEmp = `SELECT
                     department.id,
                     department.name AS department
                     FROM department
