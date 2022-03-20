@@ -1,29 +1,29 @@
-INSERT INTO department (department_id, name)
+INSERT INTO department (name)
 VALUES
-  (1, 'Customer Success'),
-  (2, 'Revenue'),
-  (3, 'Product and Technology');
+  ('Customer Success'),
+  ('Revenue'),
+  ('Product and Technology');
 
-INSERT INTO role (role_id, title, salary, department_id)
+INSERT INTO roles (title, salary, department_id)
 VALUES
-  (1, 'Customer Support Representative', 50,000, 1),
-  (2, 'Customer Support Manager', 65,000, 1),
-  (3, 'Sales Engineer', 60,000, 2),
-  (4, 'Sales Engineer Manager', 75,000, 2),
-  (5, 'Software Engineer', 80,000, 3),
-  (6, 'Staff Software Engineer', 120,000, 3),
-  (7, 'Engineering Manager', 120,000, 3),
-  (8, 'Product Manager', 100,000, 3);
+  ('Customer Support Representative', 50000, 1),
+  ('Customer Support Manager', 65000, 1),
+  ('Sales Engineer', 60000, 2),
+  ('Sales Engineer Manager', 75000, 2),
+  ('Software Engineer', 80000, 3),
+  ('Staff Software Engineer', 120000, 3),
+  ('Engineering Manager', 120000, 3),
+  ('Product Manager', 100000, 3);
 
-INSERT INTO candidates (employee_id, first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, roles_id, manager_id)
 VALUES
-  (1, 'Ronald', 'Firbank', 1, 1),
-  (2, 'Virginia', 'Woolf', 2, 1),
-  (3, 'Piers', 'Gaveston', 1, 0),
-  (4, 'Charles', 'LeRoi', 3, 1),
-  (5, 'Katherine', 'Mansfield', 4, 1),
-  (6, 'Dora', 'Carrington', 5, 0),
-  (7, 'Edward', 'Bellamy', 6, 0),
-  (8, 'Montague', 'Summers', 7, 1),
-  (9, 'Octavia', 'Butler', 8, 1),
-  (10, 'Unica', 'Zurn', 1, 1);
+  ('Ronald', 'Firbank', 1, 1),
+  ('Virginia', 'Woolf', 2, 1),
+  ('Piers', 'Gaveston', 1, 0),
+  ('Charles', 'LeRoi', 3, 1),
+  ('Katherine', 'Mansfield', 4, 1),
+  ('Dora', 'Carrington', 5, 0),
+  ('Edward', 'Bellamy', 6, 0),
+  ('Montague', 'Summers', 7, 1),
+  ('Octavia', 'Butler', 8, 1),
+  ('Unica', 'Zurn', 1, 1);
