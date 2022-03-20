@@ -32,6 +32,8 @@ THEN I am prompted to select an employee to update and their new role and this i
 ```
 
 ## Walkthrough (Partial Demo - not complete at this time)
+https://user-images.githubusercontent.com/86737019/159187435-39214e9d-01bc-455b-bf42-f6a013feca5e.mp4
+
 
 
 ## License
