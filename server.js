@@ -31,7 +31,7 @@ const questions = () => {
           "Update an Employee",
           "Exit",
         ],
-         initial: 1
+        initial: 1,
       },
     ])
     .then((answer) => {
@@ -56,18 +56,112 @@ const questions = () => {
 };
 
 const viewDepartments = () => {
-    const dept = `SELECT DISTINCT 
+  const dept = `SELECT DISTINCT 
                     department.id,
                     department.name AS department
                     FROM department
-                    `
-    db.query(dept, (err, result) => {
+                    `;
+  db.query(dept, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+    questions();
+  });
+};
+
+const viewRoles = () => {
+    const roleView = `SELECT roles.id, roles.title, department.name AS department, roles.salary FROM roles JOIN department ON roles.department_id = department.id`;
+    db.query(roleView, (err, result) => {
         if (err) {
             console.log(err);
         }
         console.table(result);
         questions();
-    })
+    });
+};
+
+const viewEmployees = () => {
+  const employees = `SELECT
+                    employee.id,
+                    employee.first_name,
+                    employee.last_name,
+                    roles.title AS "Title",
+                    department.name AS "Department",
+                    roles.salary,
+                    CONCAT(manager.first_name, " ", manager.last_name) AS "Manager"
+                    FROM employee
+                    JOIN roles on employee.roles_id = roles.id
+                    JOIN department ON roles.department_id = department.id
+                    LEFT JOIN employee manager ON employee.manager_id = manager.id;
+                    `;
+  db.query(employees, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+    questions();
+  });
+};
+
+const addDepartment = () => {
+  const addDept = `SELECT DISTINCT 
+                    department.id,
+                    department.name AS department
+                    FROM department
+                    `;
+  db.query(addDept, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+    questions();
+  });
+};
+
+const addRole = () => {
+  const addRole = `SELECT DISTINCT 
+                    department.id,
+                    department.name AS department
+                    FROM department
+                    `;
+  db.query(addRole, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+    questions();
+  });
+};
+
+const addEmployee = () => {
+  const addEmp = `SELECT DISTINCT 
+                    department.id,
+                    department.name AS department
+                    FROM department
+                    `;
+  db.query(addEmp, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+    questions();
+  });
+};
+
+const updateEmployee = () => {
+  const updateEmp = `SELECT DISTINCT 
+                    department.id,
+                    department.name AS department
+                    FROM department
+                    `;
+  db.query(updateEmp, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+    questions();
+  });
 };
 
 questions();
